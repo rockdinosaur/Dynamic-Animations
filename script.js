@@ -1,13 +1,29 @@
 $(function() {
   var shapeDiv;
+  var startX;
+  var startY;
+  var endX;
+  var endY;
   function createShape(shapeInfo) {
     shapeDiv = document.createElement("div");
     shapeInfo.forEach(function(info) {
       if (info.name === "shape") { $(shapeDiv).addClass(info.value) }
-      else if (info.name === "startX") { $(shapeDiv).attr("data-startX", info.value) }
-      else if (info.name === "startY") { $(shapeDiv).attr("data-startY", info.value) }
-      else if (info.name === "endX") { $(shapeDiv).attr("data-endX", info.value) }
-      else if (info.name === "endY") { $(shapeDiv).attr("data-endY", info.value) }
+      else if (info.name === "startX") {
+        startX = info.value || "0"
+        $(shapeDiv).attr("data-startX", startX)
+      }
+      else if (info.name === "startY") {
+        startY = info.value || "0"
+        $(shapeDiv).attr("data-startY", startY)
+      }
+      else if (info.name === "endX") {
+        endX = info.value || "0"
+        $(shapeDiv).attr("data-endX", endX)
+      }
+      else if (info.name === "endY") {
+        endY = info.value || "0"
+        $(shapeDiv).attr("data-endY", endY)
+      }
       else if (info.name === "duration") { $(shapeDiv).attr("data-duration", info.value) }
     })
     $(shapeDiv).css({
